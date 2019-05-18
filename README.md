@@ -1,7 +1,7 @@
-# GNS3-Projects
+# VXLAN GNS3 Lab
 Simple VXLAN GNS3 Lab
-18-05-19
-Created mini-project  
+Created 18-05-19
+ 
 Guided by Youtube Video https://www.youtube.com/watch?v=80RFILipeng&t=459s
 
 Spine/Leaf VXLAN Overlay 
