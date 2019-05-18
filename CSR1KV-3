@@ -1,0 +1,463 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2019.05.18 22:35:46 =~=~=~=~=~=~=~=~=~=~=~=
+
+CSR1KV-3#!!Verification Statements
+CSR1KV-3#
+CSR1KV-3#en
+CSR1KV-3#ter len 0
+CSR1KV-3#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       unassigned      YES NVRAM  up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet3       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet4       10.0.43.34      YES NVRAM  up                    up      
+GigabitEthernet5       10.0.23.32      YES NVRAM  up                    up      
+GigabitEthernet6       10.0.13.31      YES NVRAM  up                    up      
+GigabitEthernet7       10.0.33.33      YES NVRAM  up                    up      
+GigabitEthernet8       unassigned      YES NVRAM  administratively down down    
+Loopback0              10.0.0.13       YES NVRAM  up                    up      
+Tunnel0                10.0.13.31      YES unset  up                    up      
+Tunnel1                10.0.0.13       YES unset  up                    up      
+nve1                   unassigned      YES unset  up                    up      
+CSR1KV-3#show run
+Building configuration...
+
+Current configuration : 4660 bytes
+!
+! Last configuration change at 14:13:22 UTC Sat May 18 2019
+!
+version 16.7
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname CSR1KV-3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip multicast-routing distributed
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2344089011
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2344089011
+ revocation-check none
+ rsakeypair TP-self-signed-2344089011
+!
+!
+crypto pki certificate chain TP-self-signed-2344089011
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32333434 30383930 3131301E 170D3139 30353138 30323430 
+  33335A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 33343430 
+  38393031 31308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100AFAF 03C73A9B 58CB3445 F6FEE393 CD95A59F 0FC8BB4F 7F8A0392 
+  2209B669 BBE1472D 91F413DB 25423E74 4B3DA97C 5AE84899 C31B3B6C EDFDAE0A 
+  25819EEF 2E7BAE93 290BF08E 3EB9E64C A94E69B6 7817F139 17029BB7 ABF07483 
+  EBDBD42E 387FD833 8C57ADA0 6DABD1B4 E6089682 6D5AD59A 50A42CDF 7D68CEA6 
+  84F2B5ED FF26F9BB 5A126C38 58F88A7E DA4C93CF B4B2A84F AFD11CBC BF8F3B12 
+  138016E3 352CAC3C C6537EAA 0855D333 B282F9F0 272655FB 85483CE1 EA14541B 
+  B65A84C3 211AE7A1 ACB97CA1 3D4654DD E82912C3 7E16D7E1 A1699FF3 409D3E1C 
+  B3FC9807 6E241008 227FFCE6 8D0E4D19 260143DB E3496EDE 6D6E19B8 F9BB7300 
+  A214C591 23130203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14E6BE3E C02182CC 60660050 94FA4D41 B47A6DE0 
+  A3301D06 03551D0E 04160414 E6BE3EC0 2182CC60 66005094 FA4D41B4 7A6DE0A3 
+  300D0609 2A864886 F70D0101 05050003 82010100 6C50440C 9B3B12CC EDE01516 
+  5A552EE3 37C7BF48 516E1ECE 8074D8CA 1A2AA3B6 A8A8108D 6C729048 81A074E3 
+  E4178563 79F4731D 851442E5 2F3E542D 0BCBED2E 02917436 5C08138B E00C5FAA 
+  6A77E56F D8E1E269 70F9D7D5 481CFFBC 5A7B9A53 8A975B3B B766A0D3 AD1D4603 
+  439CE839 EF9CF252 3A280CF9 7871015B 0176CD4A 31F5F2F6 8116DE3B 2A942579 
+  F9B19D50 CA8045CB EC6A4BAB 795AD87F 275B5EB4 BD2F395C 8F1D77BA 21FE0D46 
+  9CC8F76C 9E093B83 FC34504C BA09B7BC 9BE3D7CF 41A48E56 BA0A6CBC 7544189D 
+  ED53D75B 764E3AC8 F046F71F FF119DDE 05867AF7 2DE52E16 72D1BA01 ACD23CA7 
+  65C05698 CEC9CBB3 E83B6236 6B0E4CC6 AE61ABF8
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9YC62A9J4UK
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+bridge-domain 1 
+ member vni 6010
+ member GigabitEthernet1 service-instance 60
+!
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 10.0.0.13 255.255.255.255
+ ip pim sparse-mode
+ ip igmp join-group 239.254.254.254
+!
+interface GigabitEthernet1
+ no ip address
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+ service instance 60 ethernet
+  encapsulation untagged
+ !
+!
+interface GigabitEthernet2
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ ip address 10.0.43.34 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ ip address 10.0.23.32 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ ip address 10.0.13.31 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ ip address 10.0.33.33 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface nve1
+ no ip address
+ source-interface Loopback0
+ member vni 6010 mcast-group 239.0.60.10
+ no mop enabled
+ no mop sysid
+!
+!
+router eigrp 100
+ network 0.0.0.0
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip pim bidir-enable
+ip pim rp-address 10.0.0.1
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login
+!
+wsma agent exec
+!
+wsma agent config
+!
+wsma agent filesys
+!
+wsma agent notify
+!
+!
+end
+
+CSR1KV-3#show ip route eigrp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 29 subnets, 2 masks
+D        10.0.0.1/32 [90/130816] via 10.0.13.1, 01:11:34, GigabitEthernet6
+D        10.0.0.2/32 [90/130816] via 10.0.23.2, 01:11:34, GigabitEthernet5
+D        10.0.0.3/32 [90/130816] via 10.0.33.3, 01:11:34, GigabitEthernet7
+D        10.0.0.4/32 [90/130816] via 10.0.43.4, 01:11:34, GigabitEthernet4
+D        10.0.0.11/32 [90/131072] via 10.0.43.4, 01:11:34, GigabitEthernet4
+                      [90/131072] via 10.0.33.3, 01:11:34, GigabitEthernet7
+                      [90/131072] via 10.0.23.2, 01:11:34, GigabitEthernet5
+                      [90/131072] via 10.0.13.1, 01:11:34, GigabitEthernet6
+D        10.0.0.12/32 [90/131072] via 10.0.43.4, 01:11:34, GigabitEthernet4
+                      [90/131072] via 10.0.33.3, 01:11:34, GigabitEthernet7
+                      [90/131072] via 10.0.23.2, 01:11:34, GigabitEthernet5
+                      [90/131072] via 10.0.13.1, 01:11:34, GigabitEthernet6
+D        10.0.0.14/32 [90/131072] via 10.0.43.4, 01:10:49, GigabitEthernet4
+                      [90/131072] via 10.0.33.3, 01:10:49, GigabitEthernet7
+                      [90/131072] via 10.0.23.2, 01:10:49, GigabitEthernet5
+                      [90/131072] via 10.0.13.1, 01:10:49, GigabitEthernet6
+D        10.0.11.0/24 [90/3072] via 10.0.13.1, 01:11:34, GigabitEthernet6
+D        10.0.12.0/24 [90/3072] via 10.0.13.1, 01:11:34, GigabitEthernet6
+D        10.0.14.0/24 [90/3072] via 10.0.13.1, 01:10:49, GigabitEthernet6
+D        10.0.21.0/24 [90/3072] via 10.0.23.2, 01:11:34, GigabitEthernet5
+D        10.0.22.0/24 [90/3072] via 10.0.23.2, 01:11:34, GigabitEthernet5
+D        10.0.24.0/24 [90/3072] via 10.0.23.2, 01:10:49, GigabitEthernet5
+D        10.0.31.0/24 [90/3072] via 10.0.33.3, 01:11:34, GigabitEthernet7
+D        10.0.32.0/24 [90/3072] via 10.0.33.3, 01:11:34, GigabitEthernet7
+D        10.0.34.0/24 [90/3072] via 10.0.33.3, 01:10:51, GigabitEthernet7
+D        10.0.41.0/24 [90/3072] via 10.0.43.4, 01:11:34, GigabitEthernet4
+D        10.0.42.0/24 [90/3072] via 10.0.43.4, 01:11:34, GigabitEthernet4
+D        10.0.44.0/24 [90/3072] via 10.0.43.4, 01:10:49, GigabitEthernet4
+D        10.12.34.0/24 [90/3072] via 10.0.43.4, 01:11:34, GigabitEthernet4
+                       [90/3072] via 10.0.33.3, 01:11:34, GigabitEthernet7
+                       [90/3072] via 10.0.23.2, 01:11:34, GigabitEthernet5
+                       [90/3072] via 10.0.13.1, 01:11:34, GigabitEthernet6
+CSR1KV-3#show nve interface nve 1
+Interface: nve1, State: Admin Up, Oper Up, Encapsulation: Vxlan,
+BGP host reachability: Disable, VxLAN dport: 4789
+VNI number: L3CP 0 L2DP 1
+source-interface: Loopback0 (primary:10.0.0.13 vrf:0)
+CSR1KV-3#show bridge-domain
+Bridge-domain 1 (2 ports in all)
+State: UP                    Mac learning: Enabled
+Aging-Timer: 300 second(s)
+    GigabitEthernet1 service instance 60
+    vni 6010
+   AED MAC address    Policy  Tag       Age  Pseudoport
+   0   0050.7966.6804 forward dynamic   50   GigabitEthernet1.EFP60
+   0   0050.7966.6802 forward dynamic   50   nve1.VNI6010, VxLAN 
+                                             src: 10.0.0.13 dst: 10.0.0.12
+
+CSR1KV-3#show ip pim neighb
+PIM Neighbor Table
+Mode: B - Bidir Capable, DR - Designated Router, N - Default DR Priority,
+      P - Proxy Capable, S - State Refresh Capable, G - GenID Capable,
+      L - DR Load-balancing Capable
+Neighbor          Interface                Uptime/Expires    Ver   DR
+Address                                                            Prio/Mode
+10.0.43.4         GigabitEthernet4         01:11:21/00:01:24 v2    1 / B S P G
+10.0.23.2         GigabitEthernet5         01:11:20/00:01:23 v2    1 / B S P G
+10.0.13.1         GigabitEthernet6         01:11:23/00:01:17 v2    1 / B S P G
+10.0.33.3         GigabitEthernet7         01:11:21/00:01:28 v2    1 / B S P G
+CSR1KV-3#show ip pim rp map
+PIM Group-to-RP Mappings
+
+Group(s) 224.0.0.0/4
+  RP 10.0.0.1 (?), v2, bidir
+    Info source: 10.0.0.11 (?), via bootstrap, priority 0, holdtime 150
+         Uptime: 01:11:05, expires: 00:02:18
+  RP 10.0.0.11 (?), v2, bidir
+    Info source: 10.0.0.11 (?), via bootstrap, priority 0, holdtime 150
+         Uptime: 01:11:16, expires: 00:02:06
+Group(s): 224.0.0.0/4, Static
+    RP: 10.0.0.1 (?)
+CSR1KV-3#show ip mroute
+IP Multicast Routing Table
+Flags: D - Dense, S - Sparse, B - Bidir Group, s - SSM Group, C - Connected,
+       L - Local, P - Pruned, R - RP-bit set, F - Register flag,
+       T - SPT-bit set, J - Join SPT, M - MSDP created entry, E - Extranet,
+       X - Proxy Join Timer Running, A - Candidate for MSDP Advertisement,
+       U - URD, I - Received Source Specific Host Report, 
+       Z - Multicast Tunnel, z - MDT-data group sender, 
+       Y - Joined MDT-data group, y - Sending to MDT-data group, 
+       G - Received BGP C-Mroute, g - Sent BGP C-Mroute, 
+       N - Received BGP Shared-Tree Prune, n - BGP C-Mroute suppressed, 
+       Q - Received BGP S-A Route, q - Sent BGP S-A Route, 
+       V - RD & Vector, v - Vector, p - PIM Joins on route, 
+       x - VxLAN group, c - PFP-SA cache created entry
+Outgoing interface flags: H - Hardware switched, A - Assert winner, p - PIM Join
+ Timers: Uptime/Expires
+ Interface state: Interface, Next-Hop or VCD, State/Mode
+
+(*,224.0.0.0/4), 01:11:24/-, RP 10.0.0.1, flags: B
+  Bidir-Upstream: GigabitEthernet6, RPF nbr: 10.0.13.1
+  Incoming interface list:
+    GigabitEthernet4, Accepting/Sparse
+    GigabitEthernet7, Accepting/Sparse
+    Tunnel1, Accepting/Sparse-Dense
+    GigabitEthernet5, Accepting/Sparse
+    Loopback0, Accepting/Sparse
+    GigabitEthernet6, Accepting/Sparse
+
+(*, 239.254.254.254), 01:11:24/00:01:59, RP 10.0.0.1, flags: BCL
+  Bidir-Upstream: GigabitEthernet6, RPF nbr 10.0.13.1
+  Outgoing interface list:
+    Loopback0, Forward/Sparse, 01:11:24/00:01:59
+    GigabitEthernet6, Bidir-Upstream/Sparse, 01:11:24/stopped
+
+(*, 239.0.60.10), 00:26:07/stopped, RP 10.0.0.1, flags: BCx
+  Bidir-Upstream: GigabitEthernet6, RPF nbr 10.0.13.1
+  Outgoing interface list:
+    Tunnel1, Forward/Sparse-Dense, 00:26:06/00:00:54
+    GigabitEthernet6, Bidir-Upstream/Sparse, 00:26:07/stopped
+
+(*, 224.0.1.40), 01:12:04/00:01:58, RP 10.0.0.1, flags: SJCL
+  Incoming interface: GigabitEthernet6, RPF nbr 10.0.13.1
+  Outgoing interface list:
+    Loopback0, Forward/Sparse, 01:12:01/00:01:58
+
+CSR1KV-3#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 29 subnets, 2 masks
+D        10.0.0.1/32 [90/130816] via 10.0.13.1, 01:11:54, GigabitEthernet6
+D        10.0.0.2/32 [90/130816] via 10.0.23.2, 01:11:54, GigabitEthernet5
+D        10.0.0.3/32 [90/130816] via 10.0.33.3, 01:11:54, GigabitEthernet7
+D        10.0.0.4/32 [90/130816] via 10.0.43.4, 01:11:54, GigabitEthernet4
+D        10.0.0.11/32 [90/131072] via 10.0.43.4, 01:11:54, GigabitEthernet4
+                      [90/131072] via 10.0.33.3, 01:11:54, GigabitEthernet7
+                      [90/131072] via 10.0.23.2, 01:11:54, GigabitEthernet5
+                      [90/131072] via 10.0.13.1, 01:11:54, GigabitEthernet6
+D        10.0.0.12/32 [90/131072] via 10.0.43.4, 01:11:54, GigabitEthernet4
+                      [90/131072] via 10.0.33.3, 01:11:54, GigabitEthernet7
+                      [90/131072] via 10.0.23.2, 01:11:54, GigabitEthernet5
+                      [90/131072] via 10.0.13.1, 01:11:54, GigabitEthernet6
+C        10.0.0.13/32 is directly connected, Loopback0
+D        10.0.0.14/32 [90/131072] via 10.0.43.4, 01:11:09, GigabitEthernet4
+                      [90/131072] via 10.0.33.3, 01:11:09, GigabitEthernet7
+                      [90/131072] via 10.0.23.2, 01:11:09, GigabitEthernet5
+                      [90/131072] via 10.0.13.1, 01:11:09, GigabitEthernet6
+D        10.0.11.0/24 [90/3072] via 10.0.13.1, 01:11:54, GigabitEthernet6
+D        10.0.12.0/24 [90/3072] via 10.0.13.1, 01:11:54, GigabitEthernet6
+C        10.0.13.0/24 is directly connected, GigabitEthernet6
+L        10.0.13.31/32 is directly connected, GigabitEthernet6
+D        10.0.14.0/24 [90/3072] via 10.0.13.1, 01:11:09, GigabitEthernet6
+D        10.0.21.0/24 [90/3072] via 10.0.23.2, 01:11:54, GigabitEthernet5
+D        10.0.22.0/24 [90/3072] via 10.0.23.2, 01:11:54, GigabitEthernet5
+C        10.0.23.0/24 is directly connected, GigabitEthernet5
+L        10.0.23.32/32 is directly connected, GigabitEthernet5
+D        10.0.24.0/24 [90/3072] via 10.0.23.2, 01:11:09, GigabitEthernet5
+D        10.0.31.0/24 [90/3072] via 10.0.33.3, 01:11:54, GigabitEthernet7
+D        10.0.32.0/24 [90/3072] via 10.0.33.3, 01:11:54, GigabitEthernet7
+C        10.0.33.0/24 is directly connected, GigabitEthernet7
+L        10.0.33.33/32 is directly connected, GigabitEthernet7
+D        10.0.34.0/24 [90/3072] via 10.0.33.3, 01:11:11, GigabitEthernet7
+D        10.0.41.0/24 [90/3072] via 10.0.43.4, 01:11:54, GigabitEthernet4
+D        10.0.42.0/24 [90/3072] via 10.0.43.4, 01:11:54, GigabitEthernet4
+C        10.0.43.0/24 is directly connected, GigabitEthernet4
+L        10.0.43.34/32 is directly connected, GigabitEthernet4
+D        10.0.44.0/24 [90/3072] via 10.0.43.4, 01:11:09, GigabitEthernet4
+D        10.12.34.0/24 [90/3072] via 10.0.43.4, 01:11:54, GigabitEthernet4
+                       [90/3072] via 10.0.33.3, 01:11:54, GigabitEthernet7
+                       [90/3072] via 10.0.23.2, 01:11:54, GigabitEthernet5
+                       [90/3072] via 10.0.13.1, 01:11:54, GigabitEthernet6
+CSR1KV-3#
+CSR1KV-3#
+CSR1KV-3#
+CSR1KV-3#
+CSR1KV-3#
+CSR1KV-3#
+CSR1KV-3#
+CSR1KV-3#
+CSR1KV-3#

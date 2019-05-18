@@ -1,0 +1,818 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2019.05.18 22:34:55 =~=~=~=~=~=~=~=~=~=~=~=
+
+CSR1KV-1#!!Verification Statements
+CSR1KV-1#
+CSR1KV-1#en
+CSR1KV-1#ter len 0
+CSR1KV-1#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       unassigned      YES NVRAM  up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet3       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet4       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet5       10.0.41.14      YES NVRAM  up                    up      
+GigabitEthernet6       10.0.31.13      YES NVRAM  up                    up      
+GigabitEthernet7       10.0.21.12      YES NVRAM  up                    up      
+GigabitEthernet8       10.0.11.11      YES NVRAM  up                    up      
+Loopback0              10.0.0.11       YES NVRAM  up                    up      
+Tunnel0                10.0.0.11       YES unset  up                    up      
+Tunnel1                10.0.11.11      YES unset  up                    up      
+nve1                   unassigned      YES unset  up                    up      
+CSR1KV-1#show run
+Building configuration...
+
+Current configuration : 4761 bytes
+!
+! Last configuration change at 13:21:37 UTC Sat May 18 2019
+!
+version 16.7
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname CSR1KV-1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip multicast-routing distributed
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2185808648
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2185808648
+ revocation-check none
+ rsakeypair TP-self-signed-2185808648
+!
+!
+crypto pki certificate chain TP-self-signed-2185808648
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32313835 38303836 3438301E 170D3139 30353138 30323430 
+  32315A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 31383538 
+  30383634 38308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100ACE5 963DC176 27E7FFAD 2E8162CB 696BD770 EC800B73 2373E8FE 
+  3E47D9FC 706CA3D6 C3F8549B 15953782 F5F2247B 8ED9BDEF B1375F1E A3F185E5 
+  EA4A1C8C 19EE512E 6BDFFA1C 029ED819 614C0D88 09F193E9 B7BD02E2 B5BF8A8A 
+  D75B1CA7 7EECF12F 695AA746 1091E084 B1CC70EF C1CF1ACC 5148E8B0 4BE8427E 
+  1D30AFBD 435FDD1E C8967512 205EEEFC 2D84D583 8471408B 3EAE671F 58819BB6 
+  3CCDFA66 D7212077 DA09A8A2 A4DDBC2D 4B574E32 58EB4304 B143FE74 3023E709 
+  58DC3661 67E6E430 09D4FC82 0AC0A4F9 3E70B05D 2D54565F 0E39358D BEDBE8CC 
+  E6073967 B3FDA2E1 7C7FE54C DEA9E0D6 5F83FD52 EB600EC9 4E8489C0 53DD97F2 
+  3374385E BE370203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14953641 12CE454A 41F5C6F6 4C54FC4C 23E87C77 
+  50301D06 03551D0E 04160414 95364112 CE454A41 F5C6F64C 54FC4C23 E87C7750 
+  300D0609 2A864886 F70D0101 05050003 82010100 561A33DB DCDEE431 DAB3DB83 
+  CA454E96 7DCD606F FC2EE0ED 8F1B7353 D581B855 28EDD755 17002232 88EAC3FE 
+  BF922061 B472AD97 59A8525F 59286DD9 DF1C7E5F 1A24CF2A F5579B06 A97DC338 
+  24F072BE E7BB3656 1C43A0AE ADB215B2 D036EF48 F6D5EDD2 2952852C 6823FB43 
+  D2367D6E D75E29CD 914E7625 5A5E66E6 0FA2C4BE E9917B64 DA4341EC AEE95C6D 
+  B7DB4A0D BF8ABA85 3323D1CD 6E718E42 3A828648 293D5887 57E0E894 32CD30D9 
+  20D89DA4 98912808 71415EFB 9A193B59 3F3FFC9E DCA035C7 D1752C19 272CE9DF 
+  77806859 27C50338 4CF9B357 FDB4D0DC 0A0D4A3C 74FBD117 C5847E02 F116D1EA 
+  1419E3DD 2D8DC552 829888F0 CE77D055 D94B7333
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 94R3SPMEGIR
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+bridge-domain 1 
+ member vni 6010
+ member GigabitEthernet1 service-instance 60
+!
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 10.0.0.11 255.255.255.255
+ ip pim sparse-mode
+ ip igmp join-group 239.254.254.254
+!
+interface GigabitEthernet1
+ no ip address
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+ service instance 60 ethernet
+  encapsulation untagged
+ !
+!
+interface GigabitEthernet2
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ ip address 10.0.41.14 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ ip address 10.0.31.13 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ ip address 10.0.21.12 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ ip address 10.0.11.11 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface nve1
+ no ip address
+ source-interface Loopback0
+ member vni 6010 mcast-group 239.0.60.10
+ no mop enabled
+ no mop sysid
+!
+!
+router eigrp 100
+ network 0.0.0.0
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip pim bidir-enable
+ip pim rp-address 10.0.0.1
+ip pim bsr-candidate Loopback0 0
+ip pim rp-candidate Loopback0 group-list 99 bidir
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ history size 256
+ stopbits 1
+line vty 0 4
+ login
+!
+wsma agent exec
+!
+wsma agent config
+!
+wsma agent filesys
+!
+wsma agent notify
+!
+!
+end
+
+CSR1KV-1#show ip route eigrp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 29 subnets, 2 masks
+D        10.0.0.1/32 [90/130816] via 10.0.11.1, 01:11:39, GigabitEthernet8
+D        10.0.0.2/32 [90/130816] via 10.0.21.2, 01:11:30, GigabitEthernet7
+D        10.0.0.3/32 [90/130816] via 10.0.31.3, 01:11:31, GigabitEthernet6
+D        10.0.0.4/32 [90/130816] via 10.0.41.4, 01:11:30, GigabitEthernet5
+D        10.0.0.12/32 [90/131072] via 10.0.41.4, 01:11:39, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:11:39, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:11:39, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:11:39, GigabitEthernet8
+D        10.0.0.13/32 [90/131072] via 10.0.41.4, 01:10:45, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:10:45, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:10:45, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:10:45, GigabitEthernet8
+D        10.0.0.14/32 [90/131072] via 10.0.41.4, 01:09:59, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:09:59, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:09:59, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:09:59, GigabitEthernet8
+D        10.0.12.0/24 [90/3072] via 10.0.11.1, 01:11:39, GigabitEthernet8
+D        10.0.13.0/24 [90/3072] via 10.0.11.1, 01:10:45, GigabitEthernet8
+D        10.0.14.0/24 [90/3072] via 10.0.11.1, 01:09:59, GigabitEthernet8
+D        10.0.22.0/24 [90/3072] via 10.0.21.2, 01:11:39, GigabitEthernet7
+D        10.0.23.0/24 [90/3072] via 10.0.21.2, 01:10:45, GigabitEthernet7
+D        10.0.24.0/24 [90/3072] via 10.0.21.2, 01:09:59, GigabitEthernet7
+D        10.0.32.0/24 [90/3072] via 10.0.31.3, 01:11:39, GigabitEthernet6
+D        10.0.33.0/24 [90/3072] via 10.0.31.3, 01:10:45, GigabitEthernet6
+D        10.0.34.0/24 [90/3072] via 10.0.31.3, 01:10:01, GigabitEthernet6
+D        10.0.42.0/24 [90/3072] via 10.0.41.4, 01:11:39, GigabitEthernet5
+D        10.0.43.0/24 [90/3072] via 10.0.41.4, 01:10:45, GigabitEthernet5
+D        10.0.44.0/24 [90/3072] via 10.0.41.4, 01:09:59, GigabitEthernet5
+D        10.12.34.0/24 [90/3072] via 10.0.41.4, 01:11:39, GigabitEthernet5
+                       [90/3072] via 10.0.31.3, 01:11:39, GigabitEthernet6
+                       [90/3072] via 10.0.21.2, 01:11:39, GigabitEthernet7
+                       [90/3072] via 10.0.11.1, 01:11:39, GigabitEthernet8
+CSR1KV-1#show nve interface nve 1
+Interface: nve1, State: Admin Up, Oper Up, Encapsulation: Vxlan,
+BGP host reachability: Disable, VxLAN dport: 4789
+VNI number: L3CP 0 L2DP 1
+source-interface: Loopback0 (primary:10.0.0.11 vrf:0)
+CSR1KV-1#show bridge-domain
+Bridge-domain 1 (2 ports in all)
+State: UP                    Mac learning: Enabled
+Aging-Timer: 300 second(s)
+    GigabitEthernet1 service instance 60
+    vni 6010
+   AED MAC address    Policy  Tag       Age  Pseudoport
+   0   0050.7966.6804 forward dynamic   94   nve1.VNI6010, VxLAN 
+                                             src: 10.0.0.11 dst: 10.0.0.13
+
+CSR1KV-1#show ip pim neighb
+PIM Neighbor Table
+Mode: B - Bidir Capable, DR - Designated Router, N - Default DR Priority,
+      P - Proxy Capable, S - State Refresh Capable, G - GenID Capable,
+      L - DR Load-balancing Capable
+Neighbor          Interface                Uptime/Expires    Ver   DR
+Address                                                            Prio/Mode
+10.0.41.4         GigabitEthernet5         01:11:51/00:01:36 v2    1 / B S P G
+10.0.31.3         GigabitEthernet6         01:12:31/00:01:32 v2    1 / B S P G
+10.0.21.2         GigabitEthernet7         01:13:10/00:01:34 v2    1 / B S P G
+10.0.11.1         GigabitEthernet8         01:12:48/00:01:31 v2    1 / B S P G
+CSR1KV-1#show ip pim rp map
+PIM Group-to-RP Mappings
+This system is a candidate RP (v2)
+This system is the Bootstrap Router (v2)
+
+Group(s) 224.0.0.0/4
+  RP 10.0.0.1 (?), v2, bidir
+    Info source: 10.0.0.1 (?), via bootstrap, priority 0, holdtime 150
+         Uptime: 01:12:13, expires: 00:01:52
+  RP 10.0.0.11 (?), v2, bidir
+    Info source: 10.0.0.11 (?), via bootstrap, priority 0, holdtime 150
+         Uptime: 01:13:19, expires: 00:02:07
+Group(s): 224.0.0.0/4, Static
+    RP: 10.0.0.1 (?)
+CSR1KV-1#show ip mroute
+IP Multicast Routing Table
+Flags: D - Dense, S - Sparse, B - Bidir Group, s - SSM Group, C - Connected,
+       L - Local, P - Pruned, R - RP-bit set, F - Register flag,
+       T - SPT-bit set, J - Join SPT, M - MSDP created entry, E - Extranet,
+       X - Proxy Join Timer Running, A - Candidate for MSDP Advertisement,
+       U - URD, I - Received Source Specific Host Report, 
+       Z - Multicast Tunnel, z - MDT-data group sender, 
+       Y - Joined MDT-data group, y - Sending to MDT-data group, 
+       G - Received BGP C-Mroute, g - Sent BGP C-Mroute, 
+       N - Received BGP Shared-Tree Prune, n - BGP C-Mroute suppressed, 
+       Q - Received BGP S-A Route, q - Sent BGP S-A Route, 
+       V - RD & Vector, v - Vector, p - PIM Joins on route, 
+       x - VxLAN group, c - PFP-SA cache created entry
+Outgoing interface flags: H - Hardware switched, A - Assert winner, p - PIM Join
+ Timers: Uptime/Expires
+ Interface state: Interface, Next-Hop or VCD, State/Mode
+
+(*,224.0.0.0/4), 01:12:32/-, RP 10.0.0.1, flags: B
+  Bidir-Upstream: GigabitEthernet8, RPF nbr: 10.0.11.1
+  Incoming interface list:
+    GigabitEthernet5, Accepting/Sparse
+    GigabitEthernet6, Accepting/Sparse
+    GigabitEthernet7, Accepting/Sparse
+    Tunnel0, Accepting/Sparse-Dense
+    Loopback0, Accepting/Sparse
+    GigabitEthernet8, Accepting/Sparse
+
+(*, 239.254.254.254), 01:13:35/00:02:29, RP 10.0.0.1, flags: BCL
+  Bidir-Upstream: GigabitEthernet8, RPF nbr 10.0.11.1
+  Outgoing interface list:
+    Loopback0, Forward/Sparse, 01:12:32/00:02:29
+    GigabitEthernet8, Bidir-Upstream/Sparse, 01:12:32/stopped
+
+(*, 239.0.60.10), 01:13:30/stopped, RP 10.0.0.1, flags: BCx
+  Bidir-Upstream: GigabitEthernet8, RPF nbr 10.0.11.1
+  Outgoing interface list:
+    Tunnel0, Forward/Sparse-Dense, 01:12:32/00:02:27
+    GigabitEthernet8, Bidir-Upstream/Sparse, 01:12:32/stopped
+
+(*, 224.0.1.40), 01:13:37/00:02:13, RP 10.0.0.1, flags: SJCL
+  Incoming interface: GigabitEthernet8, RPF nbr 10.0.11.1
+  Outgoing interface list:
+    GigabitEthernet6, Forward/Sparse, 01:13:35/00:02:13
+
+CSR1KV-1#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 29 subnets, 2 masks
+D        10.0.0.1/32 [90/130816] via 10.0.11.1, 01:11:59, GigabitEthernet8
+D        10.0.0.2/32 [90/130816] via 10.0.21.2, 01:11:50, GigabitEthernet7
+D        10.0.0.3/32 [90/130816] via 10.0.31.3, 01:11:51, GigabitEthernet6
+D        10.0.0.4/32 [90/130816] via 10.0.41.4, 01:11:50, GigabitEthernet5
+C        10.0.0.11/32 is directly connected, Loopback0
+D        10.0.0.12/32 [90/131072] via 10.0.41.4, 01:11:59, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:11:59, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:11:59, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:11:59, GigabitEthernet8
+D        10.0.0.13/32 [90/131072] via 10.0.41.4, 01:11:05, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:11:05, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:11:05, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:11:05, GigabitEthernet8
+D        10.0.0.14/32 [90/131072] via 10.0.41.4, 01:10:19, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:10:19, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:10:19, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:10:19, GigabitEthernet8
+C        10.0.11.0/24 is directly connected, GigabitEthernet8
+L        10.0.11.11/32 is directly connected, GigabitEthernet8
+D        10.0.12.0/24 [90/3072] via 10.0.11.1, 01:11:59, GigabitEthernet8
+D        10.0.13.0/24 [90/3072] via 10.0.11.1, 01:11:05, GigabitEthernet8
+D        10.0.14.0/24 [90/3072] via 10.0.11.1, 01:10:19, GigabitEthernet8
+C        10.0.21.0/24 is directly connected, GigabitEthernet7
+L        10.0.21.12/32 is directly connected, GigabitEthernet7
+D        10.0.22.0/24 [90/3072] via 10.0.21.2, 01:11:59, GigabitEthernet7
+D        10.0.23.0/24 [90/3072] via 10.0.21.2, 01:11:05, GigabitEthernet7
+D        10.0.24.0/24 [90/3072] via 10.0.21.2, 01:10:19, GigabitEthernet7
+C        10.0.31.0/24 is directly connected, GigabitEthernet6
+L        10.0.31.13/32 is directly connected, GigabitEthernet6
+D        10.0.32.0/24 [90/3072] via 10.0.31.3, 01:11:59, GigabitEthernet6
+D        10.0.33.0/24 [90/3072] via 10.0.31.3, 01:11:05, GigabitEthernet6
+D        10.0.34.0/24 [90/3072] via 10.0.31.3, 01:10:21, GigabitEthernet6
+C        10.0.41.0/24 is directly connected, GigabitEthernet5
+L        10.0.41.14/32 is directly connected, GigabitEthernet5
+D        10.0.42.0/24 [90/3072] via 10.0.41.4, 01:11:59, GigabitEthernet5
+D        10.0.43.0/24 [90/3072] via 10.0.41.4, 01:11:05, GigabitEthernet5
+D        10.0.44.0/24 [90/3072] via 10.0.41.4, 01:10:19, GigabitEthernet5
+D        10.12.34.0/24 [90/3072] via 10.0.41.4, 01:11:59, GigabitEthernet5
+                       [90/3072] via 10.0.31.3, 01:11:59, GigabitEthernet6
+                       [90/3072] via 10.0.21.2, 01:11:59, GigabitEthernet7
+                       [90/3072] via 10.0.11.1, 01:11:59, GigabitEthernet8
+CSR1KV-1#
+CSR1KV-1#
+CSR1KV-1#
+CSR1KV-1#
+CSR1KV-1#
+CSR1KV-1#
+CSR1KV-1#
+CSR1KV-1#
+CSR1KV-1#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           !!Verification Statements
+CSR1KV-1#
+CSR1KV-1#en
+CSR1KV-1#ter len 0
+CSR1KV-1#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       unassigned      YES NVRAM  up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet3       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet4       unassigned      YES NVRAM  administratively down down    
+GigabitEthernet5       10.0.41.14      YES NVRAM  up                    up      
+GigabitEthernet6       10.0.31.13      YES NVRAM  up                    up      
+GigabitEthernet7       10.0.21.12      YES NVRAM  up                    up      
+GigabitEthernet8       10.0.11.11      YES NVRAM  up                    up      
+Loopback0              10.0.0.11       YES NVRAM  up                    up      
+Tunnel0                10.0.0.11       YES unset  up                    up      
+Tunnel1                10.0.11.11      YES unset  up                    up      
+nve1                   unassigned      YES unset  up                    up      
+CSR1KV-1#show run
+Building configuration...
+
+Current configuration : 4761 bytes
+!
+! Last configuration change at 13:21:37 UTC Sat May 18 2019
+!
+version 16.7
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname CSR1KV-1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip multicast-routing distributed
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2185808648
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2185808648
+ revocation-check none
+ rsakeypair TP-self-signed-2185808648
+!
+!
+crypto pki certificate chain TP-self-signed-2185808648
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32313835 38303836 3438301E 170D3139 30353138 30323430 
+  32315A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 31383538 
+  30383634 38308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100ACE5 963DC176 27E7FFAD 2E8162CB 696BD770 EC800B73 2373E8FE 
+  3E47D9FC 706CA3D6 C3F8549B 15953782 F5F2247B 8ED9BDEF B1375F1E A3F185E5 
+  EA4A1C8C 19EE512E 6BDFFA1C 029ED819 614C0D88 09F193E9 B7BD02E2 B5BF8A8A 
+  D75B1CA7 7EECF12F 695AA746 1091E084 B1CC70EF C1CF1ACC 5148E8B0 4BE8427E 
+  1D30AFBD 435FDD1E C8967512 205EEEFC 2D84D583 8471408B 3EAE671F 58819BB6 
+  3CCDFA66 D7212077 DA09A8A2 A4DDBC2D 4B574E32 58EB4304 B143FE74 3023E709 
+  58DC3661 67E6E430 09D4FC82 0AC0A4F9 3E70B05D 2D54565F 0E39358D BEDBE8CC 
+  E6073967 B3FDA2E1 7C7FE54C DEA9E0D6 5F83FD52 EB600EC9 4E8489C0 53DD97F2 
+  3374385E BE370203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14953641 12CE454A 41F5C6F6 4C54FC4C 23E87C77 
+  50301D06 03551D0E 04160414 95364112 CE454A41 F5C6F64C 54FC4C23 E87C7750 
+  300D0609 2A864886 F70D0101 05050003 82010100 561A33DB DCDEE431 DAB3DB83 
+  CA454E96 7DCD606F FC2EE0ED 8F1B7353 D581B855 28EDD755 17002232 88EAC3FE 
+  BF922061 B472AD97 59A8525F 59286DD9 DF1C7E5F 1A24CF2A F5579B06 A97DC338 
+  24F072BE E7BB3656 1C43A0AE ADB215B2 D036EF48 F6D5EDD2 2952852C 6823FB43 
+  D2367D6E D75E29CD 914E7625 5A5E66E6 0FA2C4BE E9917B64 DA4341EC AEE95C6D 
+  B7DB4A0D BF8ABA85 3323D1CD 6E718E42 3A828648 293D5887 57E0E894 32CD30D9 
+  20D89DA4 98912808 71415EFB 9A193B59 3F3FFC9E DCA035C7 D1752C19 272CE9DF 
+  77806859 27C50338 4CF9B357 FDB4D0DC 0A0D4A3C 74FBD117 C5847E02 F116D1EA 
+  1419E3DD 2D8DC552 829888F0 CE77D055 D94B7333
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 94R3SPMEGIR
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+bridge-domain 1 
+ member vni 6010
+ member GigabitEthernet1 service-instance 60
+!
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 10.0.0.11 255.255.255.255
+ ip pim sparse-mode
+ ip igmp join-group 239.254.254.254
+!
+interface GigabitEthernet1
+ no ip address
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+ service instance 60 ethernet
+  encapsulation untagged
+ !
+!
+interface GigabitEthernet2
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ no ip address
+ ip pim sparse-mode
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ ip address 10.0.41.14 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ ip address 10.0.31.13 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ ip address 10.0.21.12 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ ip address 10.0.11.11 255.255.255.0
+ ip pim sparse-mode
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface nve1
+ no ip address
+ source-interface Loopback0
+ member vni 6010 mcast-group 239.0.60.10
+ no mop enabled
+ no mop sysid
+!
+!
+router eigrp 100
+ network 0.0.0.0
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip pim bidir-enable
+ip pim rp-address 10.0.0.1
+ip pim bsr-candidate Loopback0 0
+ip pim rp-candidate Loopback0 group-list 99 bidir
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ history size 256
+ stopbits 1
+line vty 0 4
+ login
+!
+wsma agent exec
+!
+wsma agent config
+!
+wsma agent filesys
+!
+wsma agent notify
+!
+!
+end
+
+CSR1KV-1#show ip route eigrp
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 29 subnets, 2 masks
+D        10.0.0.1/32 [90/130816] via 10.0.11.1, 01:11:39, GigabitEthernet8
+D        10.0.0.2/32 [90/130816] via 10.0.21.2, 01:11:30, GigabitEthernet7
+D        10.0.0.3/32 [90/130816] via 10.0.31.3, 01:11:31, GigabitEthernet6
+D        10.0.0.4/32 [90/130816] via 10.0.41.4, 01:11:30, GigabitEthernet5
+D        10.0.0.12/32 [90/131072] via 10.0.41.4, 01:11:39, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:11:39, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:11:39, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:11:39, GigabitEthernet8
+D        10.0.0.13/32 [90/131072] via 10.0.41.4, 01:10:45, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:10:45, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:10:45, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:10:45, GigabitEthernet8
+D        10.0.0.14/32 [90/131072] via 10.0.41.4, 01:09:59, GigabitEthernet5
+                      [90/131072] via 10.0.31.3, 01:09:59, GigabitEthernet6
+                      [90/131072] via 10.0.21.2, 01:09:59, GigabitEthernet7
+                      [90/131072] via 10.0.11.1, 01:09:59, GigabitEthernet8
+D        10.0.12.0/24 [90/3072] via 10.0.11.1, 01:11:39, GigabitEthernet8
+D        10.0.13.0/24 [90/3072] via 10.0.11.1, 01:10:45, GigabitEthernet8
+D        10.0.14.0/24 [90/3072] via 10.0.11.1, 01:09:59, GigabitEthernet8
+D        10.0.22.0/24 [90/3072] via 10.0.21.2, 01:11:39, GigabitEthernet7
+D        10.0.23.0/24 [90/3072] via 10.0.21.2, 01:10:45, GigabitEthernet7
+D        10.0.24.0/24 [90/3072] via 10.0.21.2, 01:09:59, GigabitEthernet7
+D        10.0.32.0/24 [90/3072] via 10.0.31.3, 01:11:39, GigabitEthernet6
+D        10.0.33.0/24 [90/3072] via 10.0.31.3, 01:10:45, GigabitEthernet6
+D        10.0.34.0/24 [90/3072] via 10.0.31.3, 01:10:01, GigabitEthernet6
+D        10.0.42.0/24 [90/3072] via 10.0.41.4, 01:11:39, GigabitEthernet5
+D        10.0.43.0/24 [90/3072] via 10.0.41.4, 01:10:45, GigabitEthernet5
+D        10.0.44.0/24 [90/3072] via 10.0.41.4, 01:09:59, GigabitEthernet5
+D        10.12.34.0/24 [90/3072] via 10.0.41.4, 01:11:39, GigabitEthernet5
+                       [90/3072] via 10.0.31.3, 01:11:39, GigabitEthernet6
+                       [90/3072] via 10.0.21.2, 01:11:39, GigabitEthernet7
+                       [90/3072] via 10.0.11.1, 01:11:39, GigabitEthernet8
+CSR1KV-1#show nve interface nve 1
+Interface: nve1, State: Admin Up, Oper Up, Encapsulation: Vxlan,
+BGP host reachability: Disable, VxLAN dport: 4789
+VNI number: L3CP 0 L2DP 1
+source-interface: Loopback0 (primary:10.0.0.11 vrf:0)
+CSR1KV-1#show bridge-domain
+Bridge-domain 1 (2 ports in all)
+State: UP                    Mac learning: Enabled
+Aging-Timer: 300 second(s)
+    GigabitEthernet1 service instance 60
+    vni 6010
+   AED MAC address    Policy  Tag       Age  Pseudoport
+   0   0050.7966.6804 forward dynamic   94   nve1.VNI6010, VxLAN 
+                                             src: 10.0.0.11 dst: 10.0.0.13
+
+CSR1KV-1#show ip pim neighb
+PIM Neighbor Table
+Mode: B - Bidir Capable, DR - Designated Router, N - Default DR Priority,
+      P - Proxy Capable, S - State Refresh Capable, G - GenID Capable,
+      L - DR Load-balancing Capable
+Neighbor          Interface                Uptime/Expires    Ver   DR
+Address                                                            Prio/Mode
+10.0.41.4         GigabitEthernet5         01:11:51/00:01:36 v2    1 / B S P G
+10.0.31.3         GigabitEthernet6         01:12:31/00:01:32 v2    1 / B S P G
+10.0.21.2         GigabitEthernet7         01:13:10/00:01:34 v2    1 / B S P G
+10.0.11.1         GigabitEthernet8         01:12:48/00:01:31 v2    1 / B S P G
+CSR1KV-1#show ip pim rp map
+PIM Group-to-RP Mappings
+This system is a candidate RP (v2)
+This system is the Bootstrap Router (v2)
+
+Group(s) 224.0.0.0/4
+  RP 10.0.0.1 (?), v2, bidir
+    Info source: 10.0.0.1 (?), via bootstrap, priority 0, holdtime 150
+         Uptime: 01:12:13, expires: 00:01:52
+  RP 10.0.0.11 
